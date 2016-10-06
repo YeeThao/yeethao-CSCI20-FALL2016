@@ -29,15 +29,15 @@ class TemperatureConverter
 
 void TemperatureConverter::SetTempFromKelvin(double kelvin) {
     kelvin_ = kelvin;
-    return;
+    //return;
 }
 void TemperatureConverter::SetTempFromCelcius(double kelvin) {
     kelvin_ = (kelvin + 273.15) ;
-    return;
+    //return;
 }
 void TemperatureConverter::SetTempFromFahrenheit(double kelvin) {
     kelvin_ = (5 * ((kelvin - 32) / 9));
-    return;
+    //return;
 }
 
 double TemperatureConverter::GetTempFromKelvin() const {
