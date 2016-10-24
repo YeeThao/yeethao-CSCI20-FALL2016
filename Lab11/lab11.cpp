@@ -70,28 +70,30 @@ double IncomeTax::getWithHeld() const{ // (H)
 
 double IncomeTax::getTax() const{ // (F) Determines which category of taxes person will fall under
     if (maritalStatus == "single"){ // Tax category for "single"
+    totalIncome = totalIncome - 10000;
         if (totalIncome <= 8925){
             return (totalIncome * 0.10);
         }
         else if (totalIncome <= 36250){
-            return (892.50 + (0.15 * (totalIncome / 8925)));
+            return (892.50 + (0.15 * (totalIncome - 8925)));
         }
         else if(totalIncome <= 87850){
-            return (4991.25 + (0.25 * (totalIncome / 36250)));
+            return (4991.25 + (0.25 * (totalIncome - 36250)));
         }
         else if (totalIncome >= 87851){
-            return (17891.25 + (0.28 * (totalIncome / 87850)));
+            return (17891.25 + (0.28 * (totalIncome - 87850)));
         }
     }
     else{ // Tax category for "married"
+    totalIncome = totalIncome - 20000;
         if (totalIncome <= 17850){
             return (totalIncome * 0.10);
         }
         else if (totalIncome <= 72500){
-            return ((1785 * 2) + (0.15 * (totalIncome / 17850)));
+            return ((1785 * 2) + (0.15 * (totalIncome - 17850)));
         }
         else if (totalIncome >= 72501){
-            return ((9982.50 * 2) + (0.28 * (totalIncome / 72500)));
+            return ((9982.50 * 2) + (0.28 * (totalIncome - 72500)));
         }
     }
 }

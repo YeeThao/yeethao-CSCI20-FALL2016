@@ -8,7 +8,7 @@ int main()
 {
     //Get number of years
     int Y;
-    cout << "How many years would you like to stimulate?" << endl;
+    cout << "How many years would you like to simulate?" << endl;
     cin >> Y;
     
     // Stimulate Y Years
