@@ -2,74 +2,104 @@
 // October 19, 2016
 
 #include <iostream>
+#include <ctime>
+#include <string>
 using namespace std;
 
 class RPSgame
 {
-    private:
-        string computerDecision;
-        string userDecision;
-    public:
-        RPSgame(){
-            string computerDecision = " ";
-            string userDecision = " ";
-        }
-        RPSgame(string compD, string userI){
-            computerDecision = compD;
-            userDecision = userI;
-        }
-        void SetRand(string computerDecision);
-        void SetUserInput(string userDecision);
-        double GetRandD() const;
-        double GetUserIn() const;
-        double GetWinner() const;
-        double PrintGame() const;
+  private:
+    int compRand;
+    int userInput;
+    string compChoice;
+    string userChoice;
+    string outCome;
+  public:
+    RPSgame(){
+        compRand = 0;
+        compChoice = " ";
+        userInput = 0;
+        userChoice = " ";
+    }
+    RPSgame(int compR, int userIn){
+        compRand = compR;
+        userInput = userIn;
+    }
+    void SetCompRand();
+    void SetUserInput(int userIn);
+    double GetCompRand() const;
+    double GetUserInput() const;
+    double PrintGame();
 };
 
-void RPSgame::SetRand(string computerDecision)
+void RPSgame::SetCompRand()
 {
-    int compDec;
     srand(time(0));
-    compDec = (rand()%(3-1) + 1);
-    switch(compDec)
-    {
-        case 1:
-            "Rock";
-            break;
-        case 2:
-            "Paper";
-            break;
-        case 3:
-            "Scissor";
-            break;
-    }
+    compRand = (rand()%(3-1) + 1);
+}
+
+void RPSgame::SetUserInput(int userIn)
+{
+    userInput = userIn;
     return;
 }
 
-void RPSgame::SetUserInput(string userDecision)
+double RPSgame::GetCompRand() const
 {
-    userDecision = userDecision;
+    return compRand;
 }
 
-double RPSgame::GetRandD() const
+double RPSgame::GetUserInput() const
 {
-    return computerDecision;
+    return userInput;
 }
 
-double RPSgame::GetUserIn() const 
+double RPSgame::PrintGame() 
 {
-    return userDecision;
-}
-
-double RPSgame::GetWinner() const
-{
-    if(GetRand() = 'Rock' && GetUserIn() = 'Rock')
+    // switch(compRand)
+    // {
+    //     case 1:
+    //         compChoice = "Rock";
+    //         break;
+    //     case 2:
+    //         compChoice = "Paper";
+    //         break;
+    //     case 3:
+    //         compChoice = "Scissor";
+    //         break;
+            
+    // }
+    
+    // switch(userInput)
+    // {
+    //     case 1:
+    //         userChoice = "Rock";
+    //         break;
+    //     case 2:
+    //         userChoice = "Paper";
+    //         break;
+    //     case 3:
+    //         userChoice = "Scissor";
+    //         break;
+    // }
+    
+    if(userChoice = compChoice)
     {
-        "Tie"
+        outCome = "Tie";
     }
-    else if(GetRandD() = 'Rock' && GetUserIn() = 'Paper')
+    else if(((userChoice = "Rock") && (compChoice = "Scissor")) || ((userChoice = "Paper" && compChoice = "Rock")) || ((userChoice = "Scissor") && (compChoice = "Paper")))
     {
-        "You win"
+        outCome = "Victory"
     }
-    else if(GetRandD() = )
+    else
+    {
+        outCome = "Loss"
+    }
+    
+    
+}
+
+int main()
+{
+    
 }
