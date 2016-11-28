@@ -3,7 +3,7 @@ using namespace std;
 
 class TemperatureConverter
 {
-     private:
+    private:
         double kelvin_;
         
     public:
